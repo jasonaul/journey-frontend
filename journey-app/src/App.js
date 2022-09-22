@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css';
+import NewForm from './components/NewForm';
 // import {Button, Alert, Card} from 'react-bootstrap'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -37,19 +38,29 @@ class App extends Component {
         this.setState({ events: data.events})
       })
   }
+
+  handleAddEvent = (event) => {
+    const copyEvents = [...this.state.liveEvents]
+    copyEvents.unshift(event)
+    this.setState({
+      holidays: copyEvents,
+      name: ''
+    })
+  }
   render (){
   return (
     <div>
       <h1>Journey-App</h1>
+      < NewForm handleAddEvent={this.handleAddEvent}/>
       <table>
         <tbody>
-          {this.state.events.map(event =>{
+          {/* {this.state.events.map(event =>{
             return (
               <tr key={event._id}>
                 <td> {event.name }</td>
               </tr>
             )
-          })}
+          })} */}
         </tbody>
       </table>
     </div>
