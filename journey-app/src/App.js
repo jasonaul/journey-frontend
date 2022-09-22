@@ -19,7 +19,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      liveEvents: []
+      events: []
     }
   }
   componentDidMount(){
@@ -40,10 +40,10 @@ class App extends Component {
   }
 
   handleAddEvent = (event) => {
-    const copyEvents = [...this.state.liveEvents]
+    const copyEvents = [...this.state.events]
     copyEvents.unshift(event)
     this.setState({
-      holidays: copyEvents,
+      events: copyEvents,
       name: ''
     })
   }
@@ -54,13 +54,13 @@ class App extends Component {
       < NewForm handleAddEvent={this.handleAddEvent}/>
       <table>
         <tbody>
-          {/* {this.state.events.map(event =>{
+          {this.state.events.map(events =>{
             return (
-              <tr key={event._id}>
-                <td> {event.name }</td>
+              <tr key={events._id}>
+                <td> {events.name }</td>
               </tr>
             )
-          })} */}
+          })}
         </tbody>
       </table>
     </div>

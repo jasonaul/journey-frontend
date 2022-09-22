@@ -12,7 +12,7 @@ class NewForm extends Component {
   constructor(props){
     super(props)
     this.state = {
-      eventName: ''
+      name: ''
     }
   }
   handleChange = (event) => {

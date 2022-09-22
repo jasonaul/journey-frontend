@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+Include:
+A personal calendar for tracking all events you are interested in attending.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+General App Idea/Purpose
 
-## Available Scripts
+A personal database for users to add events they are interested in attending. These events can include conventions, work events, concerts - anything that has a specific date, time, and location. The goal of the app is to provide users with a reference for activities they had previously been interested in.
 
-In the project directory, you can run:
+Models including field names and their datatypes
 
-### `npm start`
+Event Name (String)
+Event Type (String)
+Location Name (String)
+Date (Number)
+Time (Number)
+Price / Base-Price (Number)
+Link (String)
+Personal Comments (String)
+Has Event Occurred (Boolean - stretch goal)
+USER MODEL
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Username (String)
+Email address (String)
+Password (String)
+A list of routes (e.g. POST /pins/ allows users to post a picture of a pin)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+GET /events/ allows users to view a list of the events they have added
+GET /events/new allows users to add a new event to their personal calendar / database
+POST /events/ adds a new event to the database, then redirects to the user's calendar
+GET /events/:id shows info about one specific event
+GET /events/:id/edit shows users a form to edit an entry/event
+PUT /references/:id Allows a user to edit an event
+DELETE /events/:id deletes a specific event, then redirects back to user's calendar
+Wireframes
+Wireframes with basic page layouts
 
-### `npm test`
+Copy and paste or drag and drop your images here.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Screen Shot 2022-09-20 at 8 34 59 PM
+Screen Shot 2022-09-20 at 8 35 06 PM
+Screen Shot 2022-09-20 at 8 35 18 PM
+Screen Shot 2022-09-20 at 8 35 26 PM
+Screen Shot 2022-09-20 at 8 35 34 PM
 
-### `npm run build`
+User Stories
+User stories detailing app functionality
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Add user stories following the As a [type of user], I want [what the user wants], so that [what it helps accomplish] format.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+As a user, I want to be able to add events that I am interested in attending in the future. This means that, as a user, I can add in an event name, its location, date and time, and price (if there is a cost). As a user, I want to be able to see the events ordered chronologically.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+As a user, I want to be able to explore my events library to make changes and add comments/notes (stretch). I want to be able to delete events, edit events, or see events I have previously added that have already transpired (stretch).
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MVP Goals
+As a user, I want to be able to create an account
+As a user, I want to be able to explore my calendar of events
+As a user, I want to add comments to events I have added to my calendar
+As a user, I want to be able to edit entires, either to add information or change information
+As a user, I want to be able to delete any events from my calendar
+Stretch Goals
+As a user, I want to be able to use Google's SSO to create an account
+As a user, I want to be able to see the location of the event on Google Maps
+As a user, I want to see all past events, and see events that I have attended
+As a user, I want to be able to sort events by type
