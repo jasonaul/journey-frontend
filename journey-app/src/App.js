@@ -13,6 +13,7 @@ if (process.env.NODE_ENV === 'development') {
 
 console.log('current base URL: ', baseURL)
 
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -20,10 +21,37 @@ class App extends Component {
       liveEvents: []
     }
   }
+  componentDidMount(){
+    this.getEvents()
+  }
+  getEvents = () => {
+    fetch(baseURL +'/events')
+      .then((res) => {
+        if (res.status === 200){
+          return res.json()
+        } else {
+          return[]
+        }
+      })
+      .then((data) => {
+        this.setState({ events: data.events})
+      })
+  }
   render (){
   return (
     <div>
       <h1>Journey-App</h1>
+      <table>
+        <tbody>
+          {this.state.events.map(event =>{
+            return (
+              <tr key={event._id}>
+                <td> {event.name }</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
