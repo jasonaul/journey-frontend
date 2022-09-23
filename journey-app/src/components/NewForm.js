@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 
-// let baseURL = ''
+let baseURL = ''
 
-// if (process.env.NODE_ENV === 'development') {
-//   baseURL = 'http://localhost:3003'
-// } else {
-//   baseURL = 'your heroku backend url here'
-// }
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:3003'
+} else {
+  baseURL = 'your heroku backend url here'
+}
+
 
 class NewForm extends Component {
   constructor(props){
@@ -62,24 +63,54 @@ handleOccurredChange = (event)=> {
     occurred: event.target.value
   })
 }
-handleSubmit = (event) => {
-  alert(`
-  ${this.state.name}
-  ${this.state.type}
-  ${this.state.location}
-  ${this.state.date}
-  ${this.state.time}
-  ${this.state.price}
-  ${this.state.link}
-  ${this.state.comments}
-  ${this.state.occurred}`)
-}
+// handleSubmit = (event) => {
+//   alert(`
+//   ${this.state.name}
+//   ${this.state.type}
+//   ${this.state.location}
+//   ${this.state.date}
+//   ${this.state.time}
+//   ${this.state.price}
+//   ${this.state.link}
+//   ${this.state.comments}
+//   ${this.state.occurred}`)
+// }
   
+handleSubmit = (event) => {
+  event.preventDefault()
+  fetch(baseURL + '/events', {
+    method: 'POST',
+    body: JSON.stringify({name: this.state.name}),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then (res => res.json())
+    .then (resJson => {
+     console.log('NewForm - resJson', resJson) // this will be replaced with this.handleAddHolidy once App has passed it down
+      this.props.handleAddEvent(resJson)
+      this.setState({
+        name: '',
+        location: '',
+        date: Date,
+        time: '',
+        price: '',
+        link: '',
+        comments: '',
+        occurred: Boolean
+        })
+  }).catch (error => console.error({'Error': error}))
+}
   render(){
     return(
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="name">Name of Event: </label>
-        <input type="text" id="name" name="name" onChange={this.handleNameChange} value={this.state.name} placeholder=""/>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          onChange={this.handleNameChange} 
+          value={this.state.name} 
+          placeholder=""/>
         <br></br>
 
         <label htmlFor="location">Location: </label>
@@ -109,7 +140,7 @@ handleSubmit = (event) => {
         <label htmlFor="occurred">Event Occurred: </label>
         <input type="checkbox" id="occurred" name="occurred" onChange={this.handleOccurredChange} value={this.state.occurred} placeholder=""/>
         <br></br>
-        
+
         <input type="submit" value="Add New Event"/>
       </form>
     )
