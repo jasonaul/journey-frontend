@@ -23,7 +23,7 @@ class App extends Component {
       events: []
     }
   }
-  componentDidMount(){
+  async componentDidMount(){
     this.getEvents()
   }
   getEvents = () => {
@@ -37,7 +37,7 @@ class App extends Component {
       })
       .then((data) => {
         console.log({data})
-        // this.setState({ events: data.events})
+        this.setState({ events: data.events})
       })
   }
 

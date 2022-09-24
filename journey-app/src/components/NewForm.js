@@ -141,7 +141,7 @@ handleSubmit = (event) => {
         <input type="checkbox" id="occurred" name="occurred" onChange={this.handleOccurredChange} value={this.state.occurred} placeholder=""/>
         <br></br>
 
-        <input type="submit" value="Add New Event"/>
+        <input type="submit" id="submit" value="Add New Event"/>
       </form>
     )
   }
