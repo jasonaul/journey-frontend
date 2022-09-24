@@ -7,7 +7,7 @@ import NewForm from './components/NewForm';
 let baseURL =''
 
 if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3003'
+  baseURL = 'http://localhost:3000'
 } else {
   baseURL = 'heroku backend url here'
 }
@@ -35,7 +35,7 @@ class App extends Component {
         }
       })
       .then((data) => {
-        console.log(data)
+        console.log({data})
         // this.setState({ events: data.events})
       })
   }
