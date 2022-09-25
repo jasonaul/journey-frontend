@@ -3,7 +3,7 @@ import React, { Component } from "react"
 let baseURL = ''
 
 if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3003'
+  baseURL = 'http://localhost:3000'
 } else {
   baseURL = 'your heroku backend url here'
 }
@@ -15,7 +15,7 @@ class NewForm extends Component {
     this.state = {
       name: '',
       location: '',
-      date: Date,
+      date: '',
       time: '',
       price: '',
       link: '',
@@ -80,18 +80,18 @@ handleSubmit = (event) => {
   event.preventDefault()
   fetch(baseURL + '/events', {
     method: 'POST',
-    body: JSON.stringify({name: this.state.name}),
+    body: JSON.stringify({name: this.state.name, type: this.state.type, location: this.state.location, date: this.state.date, time: this.state.time, price: this.state.price, link: this.state.link, comments: this.state.comments, occurred: this.state.occurred}),
     headers: {
       'Content-Type': 'application/json'
     }
   }).then (res => res.json())
     .then (resJson => {
-     console.log('NewForm - resJson', resJson) // this will be replaced with this.handleAddHolidy once App has passed it down
+     console.log('NewForm - resJson', resJson) // this will be replaced with this.handleAddEvent once App has passed it down
       this.props.handleAddEvent(resJson)
       this.setState({
         name: '',
         location: '',
-        date: Date,
+        date: '',
         time: '',
         price: '',
         link: '',
@@ -110,35 +110,85 @@ handleSubmit = (event) => {
           name="name" 
           onChange={this.handleNameChange} 
           value={this.state.name} 
-          placeholder=""/>
+          placeholder=""
+        />
         <br></br>
 
         <label htmlFor="location">Location: </label>
-        <input type="text" id="location" name="location" onChange={this.handleLocationChange} value={this.state.location} placeholder=""/>
+        <input 
+          type="text" 
+          id="location" 
+          name="location" 
+          onChange={this.handleLocationChange} 
+          value={this.state.location} 
+          placeholder=""
+        />
         <br></br>
 
         <label htmlFor="date">Date: </label>
-        <input type="date" id="date" name="date" onChange={this.handleDateChange} value={this.state.date} placeholder=""/>
+          <input 
+            type="text" 
+            id="date" 
+            name="date" 
+            onChange={this.handleDateChange} 
+            value={this.state.date} 
+            placeholder=""
+          />
         <br></br>
 
         <label htmlFor="time">Time: </label>
-        <input type="double" id="time" name="time" onChange={this.handleTimeChange} value={this.state.time} placeholder=""/>
+        <input 
+          type="text" 
+          id="time" 
+          name="time" 
+          onChange={this.handleTimeChange} 
+          value={this.state.time} 
+          placeholder=""
+        />
         <br></br>
 
         <label htmlFor="price">Price: </label>
-        <input type="double" id="price" name="price" onChange={this.handlePriceChange} value={this.state.price} placeholder=""/>
+        <input 
+          type="text" 
+          id="price" 
+          name="price" 
+          onChange={this.handlePriceChange} 
+          value={this.state.price} 
+          placeholder=""
+        />
         <br></br>
 
         <label htmlFor="link">Link: </label>
-        <input type="text" id="link" name="link" onChange={this.handleLinkChange} value={this.state.link} placeholder=""/>
+        <input 
+          type="text" 
+          id="link" 
+          name="link" 
+          onChange={this.handleLinkChange} 
+          value={this.state.link} 
+          placeholder=""
+        />
         <br></br>
 
         <label htmlFor="comments">Comments: </label>
-        <textarea type="textarea" id="comments" name="comments" onChange={this.handleCommentsChange} value={this.state.comments} placeholder=""/>
+        <textarea 
+          type="textarea" 
+          id="comments" 
+          name="comments" 
+          onChange={this.handleCommentsChange} 
+          value={this.state.comments} 
+          placeholder=""
+        />
         <br></br>
 
         <label htmlFor="occurred">Event Occurred: </label>
-        <input type="checkbox" id="occurred" name="occurred" onChange={this.handleOccurredChange} value={this.state.occurred} placeholder=""/>
+        {/* <input 
+          type="checkbox" 
+          id="occurred" 
+          name="occurred" 
+          onChange={this.handleOccurredChange} 
+          value={this.state.occurred} 
+          placeholder=""
+        /> */}
         <br></br>
 
         <input type="submit" value="Add New Event"/>

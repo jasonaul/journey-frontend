@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {} from 'react-router-dom';
+// import {} from 'react-router-dom';
 import './App.css';
 import NewForm from './components/NewForm';
 // import {Button, Alert, Card} from 'react-bootstrap'
@@ -23,7 +23,9 @@ class App extends Component {
       events: []
     }
   }
+  
   componentDidMount(){
+    
     this.getEvents()
   }
   getEvents = () => {
@@ -36,8 +38,8 @@ class App extends Component {
         }
       })
       .then((data) => {
-        console.log({data})
-        // this.setState({ events: data.events})
+        console.log(data.events)
+        this.setState({ events: data.events})
       })
   }
 
@@ -45,15 +47,15 @@ class App extends Component {
     const copyEvents = [...this.state.events]
     copyEvents.unshift(event)
     this.setState({
-      holidays: copyEvents,
+      events: copyEvents,
       name: '',
       location: '',
-      date: Date,
+      date: '',
       time: '',
       price: '',
       link: '',
       comments: '',
-      occurred: Boolean
+      // occurred: Boolean
     })
   }
   render (){
