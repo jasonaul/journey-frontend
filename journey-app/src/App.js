@@ -23,13 +23,7 @@ class App extends Component {
       events: []
     }
   }
-<<<<<<< HEAD
-  
-  componentDidMount(){
-    
-=======
   async componentDidMount(){
->>>>>>> 996e680de4e8297ecf3c5fc1f5c3614aa7bc19bf
     this.getEvents()
   }
   getEvents = () => {
@@ -42,11 +36,7 @@ class App extends Component {
         }
       })
       .then((data) => {
-<<<<<<< HEAD
-        console.log(data.events)
-=======
         console.log({data})
->>>>>>> 996e680de4e8297ecf3c5fc1f5c3614aa7bc19bf
         this.setState({ events: data.events})
       })
   }

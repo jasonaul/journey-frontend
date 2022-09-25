@@ -4,7 +4,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import App from './App';
 import Navbar from './components/Navbar'
-import EventShow from './components/EventShow'
+// import EventShow from './components/EventShow'
 import reportWebVitals from './reportWebVitals';
 // import {BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -14,7 +14,7 @@ root.render(
   <React.StrictMode>
     <Navbar />
     <App />
-    <EventShow />
+    {/* <EventShow /> */}
   </React.StrictMode>
 );
 
