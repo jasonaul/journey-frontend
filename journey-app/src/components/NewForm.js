@@ -191,7 +191,7 @@ handleSubmit = (event) => {
         /> */}
         <br></br>
 
-        <input type="submit" value="Add New Event"/>
+        <input type="submit" id="submit" value="Add New Event"/>
       </form>
     )
   }
