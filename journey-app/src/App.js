@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import {} from 'react-router-dom';
 import './App.css';
 import NewForm from './components/NewForm';
+import EventShow from './components/EventShow.js'
 // import {Button, Alert, Card} from 'react-bootstrap'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -20,6 +21,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
+      name: '',
       events: []
     }
   }
@@ -43,22 +45,24 @@ class App extends Component {
 
   handleAddEvent = (event) => {
     const copyEvents = [...this.state.events]
+    const name = this.state.name
     copyEvents.unshift(event)
     this.setState({
       events: copyEvents,
-      name: '',
-      location: '',
-      date: '',
-      time: '',
-      price: '',
-      link: '',
-      comments: '',
+      name: name,
+      // location: '',
+      // date: '',
+      // time: '',
+      // price: '',
+      // link: '',
+      // comments: '',
       // occurred: Boolean
     })
   }
   render (){
   return (
     <div>
+      <div>
       <h1>Journey-App</h1>
       < NewForm handleAddEvent={this.handleAddEvent} />
       <table>
@@ -66,14 +70,22 @@ class App extends Component {
           {this.state.events.map(events =>{
             return (
               <tr key={events._id}>
-                <td> {events.name }</td>
+              <td> {events.name }</td>
               </tr>
             )
           })}
         </tbody>
       </table>
     </div>
+      <EventShow 
+        events = {this.state.events}
+      />
+    </div>
+    
   );
 }
 }
+
+
+
 export default App;
