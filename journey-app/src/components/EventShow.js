@@ -18,19 +18,21 @@ import React, { Component } from "react"
     return(
         <>
      <h1>EVENT SHOW HERE</h1>
-    <table>  
-        <tbody>
+    
       {this.props.events.map((events) =>{
         return (
+          <table>  
+        <tbody>
             <div key={events.id}>
             <h1>{events.name}</h1>
             </div>
+            </tbody>
+        </table>
         )
       }
       
       )}
-        </tbody>
-    </table>
+     
     </>
 )}}
 
