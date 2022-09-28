@@ -3,18 +3,21 @@ import React, { Component } from 'react'
 import './App.css';
 import NewForm from './components/NewForm';
 import EventShow from './components/EventShow.js'
+// import Delete from './components/DeleteEvent';
+// import Delete from './components/DeleteEvent';
+// import { Button } from 'bootstrap';
 // import {Button, Alert, Card} from 'react-bootstrap'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
-let baseURL =''
+let baseURL = process.env.REACT_APP_BACKEND_URL
 
-if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3000'
-} else {
-  baseURL = 'heroku backend url here'
-}
+// if (process.env.NODE_ENV === 'development') {
+//   baseURL = 'http://localhost:3000'
+// } else {
+//   baseURL = process.env.REACT_APP_BACKEND_URL
+// }
 
-console.log('current base URL: ', baseURL)
+// console.log('current base URL: ', baseURL)
 
 
 class App extends Component {
@@ -50,15 +53,26 @@ class App extends Component {
     this.setState({
       events: copyEvents,
       name: name,
-      // location: '',
-      // date: '',
-      // time: '',
-      // price: '',
-      // link: '',
-      // comments: '',
+      location: '',
+      date: '',
+      time: '',
+      price: '',
+      link: '',
+      comments: '',
       // occurred: Boolean
     })
   }
+  // handleDeleteEvents = (id) => {
+  //   fetch(baseURL + '/events/' + id, {
+  //     method: 'DELETE'
+  //   }).then( response => {
+  //     const findIndex = this.state.events.findIndex(event => event._id === id)
+  //     const copyEvents = [...this.state.events]
+  //     copyEvents.splice(findIndex, 1)
+  //     this.setState({events: copyEvents})
+  //     console.log(this.state)
+  //   })
+  // }
   render (){
   return (
     <div>
@@ -71,10 +85,17 @@ class App extends Component {
             return (
               <tr key={events._id}>
               <td> {events.name }</td>
+              <td> {events.location }</td>
+              <td> {events.date }</td>
+              <td> {events.time }</td>
+              <td> {events.price }</td>
+              <td> {events.link }</td>
               </tr>
+              
             )
           })}
         </tbody>
+        
       </table>
     </div>
       <EventShow 
