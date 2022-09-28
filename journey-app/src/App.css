@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -66,4 +67,44 @@
   display: block;
   width: 50%;
   margin-right: auto;
+}
+
+
+/* EVENT SHOW CARD CSS HERE */
+
+
+.card-container {
+	width: 400px;
+	height: 445px;
+	border-radius: 15px;
+  
+  cursor: pointer;
+  perspective: 600;
+  position: relative;
+  margin:15px
+}
+.card {
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
+}
+.flipped {
+  transform: rotateY(180deg);
+}
+.card .pic {
+  backface-visibility: hidden;
+  border-radius: 6px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+.card .back {
+  background: #eaeaed;
+  color: #0087cc;
+  line-height: 150px;
+  text-align: center;
+  transform: rotateY(180deg);
 }

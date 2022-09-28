@@ -28,6 +28,11 @@ class NewForm extends Component {
       name: event.target.value
     })
   }
+  handleTypeChange = (event) => {
+    this.setState({
+      type: event.target.value
+    })
+  }
   handleLocationChange = (event)=>{
     this.setState({
       location: event.target.value
@@ -110,6 +115,17 @@ handleSubmit = (event) => {
           name="name" 
           onChange={this.handleNameChange} 
           value={this.state.name} 
+          placeholder=""
+        />
+        <br></br>
+
+        <label htmlFor="type">Type of Event: </label>
+        <input 
+          type="text" 
+          id="type" 
+          name="type" 
+          onChange={this.handleTypeChange} 
+          value={this.state.type} 
           placeholder=""
         />
         <br></br>

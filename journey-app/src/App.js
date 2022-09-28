@@ -5,6 +5,8 @@ import NewForm from './components/NewForm';
 import EventShow from './components/EventShow.js'
 // import {Button, Alert, Card} from 'react-bootstrap'
 // import 'bootstrap/dist/css/bootstrap.min.css'
+// const sass = require('sass');
+// const result = sass.compile('./App.scss');
 
 let baseURL =''
 
@@ -38,7 +40,7 @@ class App extends Component {
         }
       })
       .then((data) => {
-        console.log({data})
+        console.log(data)
         this.setState({ events: data.events})
       })
   }
@@ -70,7 +72,7 @@ class App extends Component {
           {this.state.events.map(events =>{
             return (
               <tr key={events._id}>
-              <td> {events.name }</td>
+              {/* <td> {events.name }</td> */}
               </tr>
             )
           })}
@@ -79,6 +81,7 @@ class App extends Component {
     </div>
       <EventShow 
         events = {this.state.events}
+       
       />
     </div>
     
