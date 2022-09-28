@@ -108,3 +108,34 @@
   text-align: center;
   transform: rotateY(180deg);
 }
+
+/* INDIVIDUAL CARD STYLE */
+
+#cardName {
+  text-align: center;
+  font-weight: 900;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#cardType {
+  padding-left: 3px;
+}
+
+#cardDate {
+  padding-left: 3px;
+}
+
+#clickHere {
+  position: absolute;
+  font-weight: 900;
+  bottom: 0;
+  right: 0;
+  padding-right: 3px;
+}
+
+#location {
+  position: absolute;
+  left: 0;
+  padding-top: 5px;
+  padding-left: 3px;
+}

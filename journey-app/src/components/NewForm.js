@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
+
 
 let baseURL = ''
 
@@ -140,6 +141,8 @@ handleSubmit = (event) => {
           placeholder=""
         />
         <br></br>
+
+{/* HOLD: Can use Date-Picker Here */}
 
         <label htmlFor="date">Date: </label>
           <input 

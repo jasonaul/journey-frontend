@@ -18,23 +18,31 @@ class EventShow extends Component {
     console.log(this.props)
      return(
         <>
-     <div onClick={()=>this.flip()} className="card-container">
-    <div className={this.state.flip? "card flipped" : "card"}>
-    <div>
     
-    <h1>Things work sometimes</h1>
     {this.props?.events?.map((events) =>{
         return (
+            <div onClick={()=>this.flip()} className="card-container">
+    <div className={this.state.flip? "card flipped" : "card"}>
+    <div>
             <div key={events.id}>
-            <h1>{events.name}</h1>
+            <h1 id="cardName">{events.name}</h1>
+            <h4 id="cardType">Event Type: {events.type}</h4>
+            <h4 id="cardDate">Date: {events.date}</h4>
+            <img id="cardImage" alt=''></img>
             </div>
+            <p id="clickHere">Click for more info...</p>
+            </div>
+
+
+<div className="pic back">
+<h3 id="location">Location: {events.location}</h3>
+
+<a href="http://www.google.com">SAMPLE NAME</a></div>
+</div>
+</div>
         )
       })}
-    </div>
 
-      <div className="pic back"><a href="http://www.google.com">SAMPLE NAME</a></div>
-    </div>
-  </div>
   </>
    )} 	
   }
