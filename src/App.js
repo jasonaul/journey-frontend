@@ -9,14 +9,14 @@ import EventShow from './components/EventShow.js'
 // import {Button, Alert, Card} from 'react-bootstrap'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
-// let baseURL = process.env.REACT_APP_BACKEND_URL
-let baseURL =''
+let baseURL = process.env.REACT_APP_BACKEND_URL
+// let baseURL =''
 
-if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3003'
-} else {
-  baseURL = process.env.REACT_APP_BACKEND_URL
-}
+// if (process.env.NODE_ENV === 'development') {
+//   baseURL = 'http://localhost:3003'
+// } else {
+//   baseURL = process.env.REACT_APP_BACKEND_URL
+// }
 
 console.log('current base URL: ', baseURL)
 
