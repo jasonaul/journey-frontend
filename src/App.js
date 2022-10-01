@@ -87,16 +87,7 @@ class App extends Component {
           {this.state.events.map(events =>{
             return (
               <tr key={events._id}>
-<<<<<<< HEAD:src/App.js
-              <td> {events.name }</td>
-              <td> {events.location }</td>
-              <td> {events.date }</td>
-              <td> {events.time }</td>
-              <td> {events.price }</td>
-              <td> {events.link }</td>
-=======
               {/* <td> {events.name }</td> */}
->>>>>>> EventShow:journey-app/src/App.js
               </tr>
               
             )

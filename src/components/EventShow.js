@@ -147,17 +147,6 @@ export default EventShow;
 
     render(){
     return(
-<<<<<<< HEAD:src/components/EventShow.js
-        <>
-     <h1>EVENT SHOW HERE</h1>
-    
-      {this.props.events.map((events) =>{
-        return (
-          <table>  
-        <tbody>
-            <div key={events.id}>
-            <h1>{events.name}</h1>
-=======
         <div onClick={this.flip} className={"card-container" + (this.state.flipped ? " flipped" : "")}>
 
         <Front />
@@ -173,22 +162,10 @@ class Front extends Component {
             <div className="front">
                 <ImageArea />
                 <MainArea />
->>>>>>> EventShow:journey-app/src/components/EventShow.js
             </div>
-            </tbody>
-        </table>
         )
-<<<<<<< HEAD:src/components/EventShow.js
-      }
-      
-      )}
-     
-    </>
-)}}
-=======
     }
 }
->>>>>>> EventShow:journey-app/src/components/EventShow.js
 
 class Back extends Component {
     render() {
