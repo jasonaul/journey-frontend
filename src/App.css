@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -66,4 +67,92 @@
   display: block;
   width: 50%;
   margin-right: auto;
+}
+
+
+/* EVENT SHOW CARD CSS HERE */
+
+
+.card-container {
+	width: 400px;
+	height: 445px;
+  
+	border-radius: 15px;
+  
+  cursor: pointer;
+  perspective: 600;
+  position: relative;
+  margin:15px
+}
+.card {
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
+  background-color: rgb(206, 233, 242);
+  border: 2px solid #ffa500;
+}
+.flipped {
+  transform: rotateY(180deg);
+}
+.card .pic {
+  backface-visibility: hidden;
+  border-radius: 6px;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+}
+.card .back {
+  background: #eaeaed;
+  color: #0087cc;
+  line-height: 150px;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
+/* INDIVIDUAL CARD STYLE */
+
+#cardName { 
+  text-align: center;
+  color: #c48208; 
+  font-family: 'Trocchi', serif; 
+  font-size: 45px; 
+  font-weight: normal; 
+  line-height: 48px; 
+  margin: 0; 
+  padding-bottom: 5px;
+}
+
+#cardType {
+  padding-left: 3px;
+}
+
+#cardDate {
+  padding-left: 3px;
+}
+
+#clickHere {
+  position: absolute;
+  font-weight: 900;
+  bottom: 0;
+  right: 0;
+  padding-right: 3px;
+}
+
+#locationCard {
+  position: absolute;
+  left: 0;
+  padding-top: 5px;
+  padding-left: 3px;
+}
+
+#cardImage {
+  max-height: 90%;
+  max-width: 90%;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+  padding-top: 25px;
 }

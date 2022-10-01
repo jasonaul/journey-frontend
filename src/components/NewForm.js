@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
+
 
 let baseURL = ''
 
@@ -26,6 +27,11 @@ class NewForm extends Component {
   handleNameChange = (event) => {
     this.setState({
       name: event.target.value
+    })
+  }
+  handleTypeChange = (event) => {
+    this.setState({
+      type: event.target.value
     })
   }
   handleLocationChange = (event)=>{
@@ -114,6 +120,25 @@ handleSubmit = (event) => {
         />
         <br></br>
 
+        <label htmlFor="type">Type of Event: </label>
+        <select value={this.state.type} onChange={this.handleTypeChange} >
+          <option value="business">Business</option>
+          <option value="concert">Concert / Music</option>
+          <option value="convention">Convention</option>
+          <option value="arts">Performing & Visual Arts</option>
+          <option value="sports">Sporting Event</option>
+          <option value="other">Other</option>
+        </select>
+        {/* <input 
+          type="text" 
+          id="type" 
+          name="type" 
+          
+          value={this.state.type} 
+          placeholder=""
+        /> */}
+        <br></br>
+
         <label htmlFor="location">Location: </label>
         <input 
           type="text" 
@@ -124,6 +149,8 @@ handleSubmit = (event) => {
           placeholder=""
         />
         <br></br>
+
+{/* HOLD: Can use Date-Picker Here */}
 
         <label htmlFor="date">Date: </label>
           <input 

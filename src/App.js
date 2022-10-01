@@ -8,6 +8,8 @@ import EventShow from './components/EventShow.js'
 // import { Button } from 'bootstrap';
 // import {Button, Alert, Card} from 'react-bootstrap'
 // import 'bootstrap/dist/css/bootstrap.min.css'
+// const sass = require('sass');
+// const result = sass.compile('./App.scss');
 
 let baseURL = process.env.REACT_APP_BACKEND_URL
 // let baseURL =''
@@ -42,7 +44,7 @@ class App extends Component {
         }
       })
       .then((data) => {
-        console.log({data})
+        console.log(data)
         this.setState({ events: data.events})
       })
   }
@@ -85,12 +87,16 @@ class App extends Component {
           {this.state.events.map(events =>{
             return (
               <tr key={events._id}>
+<<<<<<< HEAD:src/App.js
               <td> {events.name }</td>
               <td> {events.location }</td>
               <td> {events.date }</td>
               <td> {events.time }</td>
               <td> {events.price }</td>
               <td> {events.link }</td>
+=======
+              {/* <td> {events.name }</td> */}
+>>>>>>> EventShow:journey-app/src/App.js
               </tr>
               
             )
@@ -101,6 +107,7 @@ class App extends Component {
     </div>
       <EventShow 
         events = {this.state.events}
+       
       />
     </div>
     
