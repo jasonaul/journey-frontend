@@ -121,14 +121,22 @@ handleSubmit = (event) => {
         <br></br>
 
         <label htmlFor="type">Type of Event: </label>
-        <input 
+        <select value={this.state.type} onChange={this.handleTypeChange} >
+          <option value="business">Business</option>
+          <option value="concert">Concert / Music</option>
+          <option value="convention">Convention</option>
+          <option value="arts">Performing & Visual Arts</option>
+          <option value="sports">Sporting Event</option>
+          <option value="other">Other</option>
+        </select>
+        {/* <input 
           type="text" 
           id="type" 
           name="type" 
-          onChange={this.handleTypeChange} 
+          
           value={this.state.type} 
           placeholder=""
-        />
+        /> */}
         <br></br>
 
         <label htmlFor="location">Location: </label>

@@ -76,6 +76,7 @@
 .card-container {
 	width: 400px;
 	height: 445px;
+  
 	border-radius: 15px;
   
   cursor: pointer;
@@ -89,6 +90,8 @@
   transform-style: preserve-3d;
   transition: all 1s ease-in-out;
   width: 100%;
+  background-color: rgb(206, 233, 242);
+  border: 2px solid #ffa500;
 }
 .flipped {
   transform: rotateY(180deg);
@@ -111,10 +114,15 @@
 
 /* INDIVIDUAL CARD STYLE */
 
-#cardName {
+#cardName { 
   text-align: center;
-  font-weight: 900;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #c48208; 
+  font-family: 'Trocchi', serif; 
+  font-size: 45px; 
+  font-weight: normal; 
+  line-height: 48px; 
+  margin: 0; 
+  padding-bottom: 5px;
 }
 
 #cardType {
@@ -133,9 +141,18 @@
   padding-right: 3px;
 }
 
-#location {
+#locationCard {
   position: absolute;
   left: 0;
   padding-top: 5px;
   padding-left: 3px;
+}
+
+#cardImage {
+  max-height: 90%;
+  max-width: 90%;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+  padding-top: 25px;
 }
