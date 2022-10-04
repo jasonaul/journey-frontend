@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import './App.css';
 import NewForm from './components/NewForm';
 import EventShow from './components/EventShow.js'
+import FormPop from './components/FormPop'
 // import Delete from './components/DeleteEvent';
 // import Delete from './components/DeleteEvent';
 // import { Button } from 'bootstrap';
@@ -81,6 +82,7 @@ class App extends Component {
     <div>
       <div>
       <h1>Journey-App</h1>
+      <FormPop />
       < NewForm handleAddEvent={this.handleAddEvent} />
       <table>
         <tbody>
