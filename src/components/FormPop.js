@@ -129,10 +129,10 @@ handleSubmit = (event) => {
   render() {
     return (
       <div className="FormPop">
-      
+      <br></br>
       
      
-        <a href="/#" onClick={e => this.modalOpen(e)}>
+        <a href="#" onClick={e => this.modalOpen(e)}>
           <button id="addEventButton">Add New Event</button>
         </a>
         <Modal show={this.state.modal} handleClose={e => this.modalClose(e)}>

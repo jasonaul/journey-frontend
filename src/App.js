@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import './App.css';
-/* import NewForm from './components/NewForm';
- */import EventShow from './components/EventShow.js'
-import FormPop from './components/FormPop'
+import EventShow from './components/EventShow.js'
 import FAQ from './components/FAQ'
 import Home from './components/Pages/Home';
 
@@ -100,7 +98,7 @@ class App extends Component {
       
     </div>
     
-    <BrowserRouter>
+  <BrowserRouter>
 
   <Routes>
     <Route path='/' element={<Home />}/>

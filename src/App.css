@@ -49,13 +49,13 @@
   border-bottom: 5px solid orange;
 }
 
-.navbar__title {
+.navbar_title {
   margin: auto;
   width: 60%;
   padding: 12px
 }
 
-.navbar__item {
+.navbar_item {
   padding: 14px ;
   cursor: pointer;
   vertical-align: middle;
