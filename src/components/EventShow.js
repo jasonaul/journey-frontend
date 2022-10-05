@@ -94,7 +94,7 @@ class EventShow extends Component {
 
 </div>
 
-</div></div>
+</div><hr></hr></div>
         )
       })}
 

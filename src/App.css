@@ -198,3 +198,26 @@
   color: inherit;
   text-decoration: none;
 }
+
+
+/* HOME PAGE THINGS */
+.hero-image {
+  background-image: linear-gradient(rgba(237, 220, 220, 0.5), rgba(77, 74, 74, 0.5)), url("https://i.pinimg.com/originals/69/d0/7f/69d07f5b4e21ac19a3bdebbbdd6d2cc1.jpg");
+  height: 550px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-top: 15px;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+

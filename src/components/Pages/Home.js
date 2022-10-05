@@ -1,6 +1,5 @@
 import React from "react";
 import '../../App.css';
-import Navbar from '../Navbar'
 
 /* import {Link} from "react-router-dom"
  */
@@ -8,9 +7,15 @@ import Navbar from '../Navbar'
     return (<>
         <div>
         
-            <h1>Home Test</h1>
-            <p>Cany anyone see this?</p>
-            
+        <div class="hero-image">
+         <div class="hero-text">
+            <h1 id="heroH1">Your Personal Event Journal</h1>
+                <p id="heroP">Go Play</p>
+                    
+        </div>
+        </div>
+
+
         </div>
         </>
     )
