@@ -5,16 +5,19 @@ import './App.css';
 import FormPop from './components/FormPop'
 import FAQ from './components/FAQ'
 
+// Here be routers //
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Home from "./components/Pages/Home"
+
 
 
 let baseURL = process.env.REACT_APP_BACKEND_URL
-// let baseURL =''
 
-// if (process.env.NODE_ENV === 'development') {
-//   baseURL = 'http://localhost:3003'
-// } else {
-//   baseURL = process.env.REACT_APP_BACKEND_URL
-// }
 
 console.log('current base URL: ', baseURL)
 
@@ -78,39 +81,48 @@ class App extends Component {
 
   render (){
   return (
-    <div>
-      <div>
-   <FAQ />
-      <h1>Journey-App</h1>
-  <FormPop />
-{/*       < NewForm handleAddEvent={this.handleAddEvent} />
- */}      <table>
-        <tbody>
-          {this.state.events.map(events =>{
-            return (
-              <tr key={events._id}>
-              {/* <td> {events.name }</td> */}
-              </tr>
-              
-            )
-          })}
-        </tbody>
-        
-      </table>
-    </div>
-      <EventShow 
-        events = {this.state.events}
-       
-      />
-    </div>
-    
-    
+    <>
+      {
+        <Router>
+          <Switch>
+            <Route exact path ="/" component={Home}
+          </Switch>
+        </Router>
+      }
+    </>
   );
-  
-}
-
 }
 
 
 
 export default App;
+
+
+//     <div>
+//       <div>
+//    <FAQ />
+//       <h1>Journey-App</h1>
+//   <FormPop />
+// {/*       < NewForm handleAddEvent={this.handleAddEvent} />
+//  */}      <table>
+//         <tbody>
+//           {this.state.events.map(events =>{
+//             return (
+//               <tr key={events._id}>
+//               {/* <td> {events.name }</td> */}
+//               </tr>
+              
+//             )
+//           })}
+//         </tbody>
+        
+//       </table>
+//     </div>
+//       <EventShow 
+//         events = {this.state.events}
+       
+//       />
+//     </div>
+    
+    
+//   );
