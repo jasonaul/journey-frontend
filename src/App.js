@@ -8,7 +8,7 @@ import FAQ from './components/FAQ'
 // Here be routers //
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Redirect,
 } from "react-router-dom";
@@ -81,48 +81,39 @@ class App extends Component {
 
   render (){
   return (
-    <>
-      {
-        <Router>
-          <Switch>
-            <Route exact path ="/" component={Home}
-          </Switch>
-        </Router>
-      }
-    </>
+    <div>
+      <div>
+   <FAQ />
+      <h1>Journey-App</h1>
+  <FormPop />
+{/*       < NewForm handleAddEvent={this.handleAddEvent} />
+ */}      <table>
+        <tbody>
+          {this.state.events.map(events =>{
+            return (
+              <tr key={events._id}>
+              {/* <td> {events.name }</td> */}
+              </tr>
+              
+            )
+          })}
+        </tbody>
+        
+      </table>
+    </div>
+      <EventShow 
+        events = {this.state.events}
+       
+      />
+    </div>
+    
+    
   );
+  
+}
+
 }
 
 
 
 export default App;
-
-
-//     <div>
-//       <div>
-//    <FAQ />
-//       <h1>Journey-App</h1>
-//   <FormPop />
-// {/*       < NewForm handleAddEvent={this.handleAddEvent} />
-//  */}      <table>
-//         <tbody>
-//           {this.state.events.map(events =>{
-//             return (
-//               <tr key={events._id}>
-//               {/* <td> {events.name }</td> */}
-//               </tr>
-              
-//             )
-//           })}
-//         </tbody>
-        
-//       </table>
-//     </div>
-//       <EventShow 
-//         events = {this.state.events}
-       
-//       />
-//     </div>
-    
-    
-//   );
