@@ -191,3 +191,10 @@
   border-style: solid; 
   border-color: #c48208;
 }
+
+/* Link stuff */
+
+#noLink {
+  color: inherit;
+  text-decoration: none;
+}

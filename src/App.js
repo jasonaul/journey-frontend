@@ -4,15 +4,11 @@ import './App.css';
  */import EventShow from './components/EventShow.js'
 import FormPop from './components/FormPop'
 import FAQ from './components/FAQ'
+import Home from './components/Pages/Home';
 
 // Here be routers //
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Redirect,
-} from "react-router-dom";
-import Home from "./components/Pages/Home"
+
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 
 
@@ -20,6 +16,7 @@ let baseURL = process.env.REACT_APP_BACKEND_URL
 
 
 console.log('current base URL: ', baseURL)
+
 
 
 class App extends Component {
@@ -81,11 +78,10 @@ class App extends Component {
 
   render (){
   return (
-    <div>
+    <>
+        <div>
       <div>
-   <FAQ />
-      <h1>Journey-App</h1>
-  <FormPop />
+
 {/*       < NewForm handleAddEvent={this.handleAddEvent} />
  */}      <table>
         <tbody>
@@ -101,14 +97,25 @@ class App extends Component {
         
       </table>
     </div>
-      <EventShow 
-        events = {this.state.events}
-       
-      />
+      
     </div>
     
+    <BrowserRouter>
+
+  <Routes>
+    <Route path='/' element={<Home />}/>
+    <Route path='/FAQ' element={<FAQ />}/>
+    <Route path='/events' element={<EventShow 
+        events = {this.state.events}/>
+      }/>
+  </Routes>
+
+  </BrowserRouter>
+
     
-  );
+</>
+
+);
   
 }
 
