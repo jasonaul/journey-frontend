@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 
 let baseURL = process.env.REACT_APP_BACKEND_URL
-// let baseURL = ''
 
-// if (process.env.NODE_ENV === 'development') {
-//   baseURL = 'http://localhost:3000'
-// } else {
-//   baseURL = 'your heroku backend url here'
-// }
 
 
 class NewForm extends Component {

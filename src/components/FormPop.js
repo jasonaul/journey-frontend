@@ -89,7 +89,7 @@ handleSubmit = (event) => {
     }
   }).then (res => res.json())
     .then (resJson => {
-     console.log('NewForm - resJson', resJson) // this will be replaced with this.handleAddEvent once App has passed it down
+     console.log('NewForm - resJson', resJson) 
       this.props.handleAddEvent(resJson)
       this.setState({
         name: '',
@@ -123,7 +123,7 @@ handleSubmit = (event) => {
   handleCloseModal () {
     this.setState({modal: false})
   }
-//"javascript:;"
+
 
 
   render() {
@@ -173,7 +173,7 @@ handleSubmit = (event) => {
         />
         <br></br>
 
-{/* HOLD: Can use Date-Picker Here */}
+{/* HOLD: Can use Date-Picker Here,if we decide to */}
 
         <label htmlFor="date">Date: </label>
           <input 
