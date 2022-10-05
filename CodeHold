@@ -1,0 +1,32 @@
+<BrowserRouter>
+
+  <Routes>
+    <Route path='/' element={<Home />}/>
+    <Route path='/FAQ' element={<FAQ />}/>
+  </Routes>
+
+  </BrowserRouter>
+
+
+  function App() {
+    return 
+  }
+
+
+
+  {/* {function changeImage (){
+    var eventImage = document.getElementById(eventImage)
+if ({events.type} === 'concert') {
+    eventImage = "https://i.imgur.com/c0GaIr6.jpeg"
+} else if ({events.type} ==='convention') {
+    eventImage = "https://i.imgur.com/Vl9lCDA.png"
+} else if ({events.type} ==='business') {
+    eventImage = "https://ironstonehq.com/wp-content/uploads/2018/10/AdobeStock_208955675-1024x684.jpeg"
+} else if ({events.type} ==='arts') {
+    eventImage = "https://i.imgur.com/E2Nffrt.jpeg"
+} else if ({events.type} ==='sports') {
+    eventImage = "https://i.imgur.com/gEj7GZf.jpeg"
+} else {
+    eventImage = "https://i.imgur.com/Uj8oGm0.jpg"
+}
+}} */}

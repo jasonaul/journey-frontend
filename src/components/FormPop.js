@@ -1,13 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
+import ReactDOM from "react-dom";
+import Modal from "./Modal";
 
+import "../Pop.css";
 let baseURL = process.env.REACT_APP_BACKEND_URL
 
+class FormPop extends React.Component {
+  constructor(props) {
+    super(props);
 
-
-class NewForm extends Component {
-  constructor(props){
-    super(props)
     this.state = {
+      modal: false,
       name: '',
       location: '',
       date: '',
@@ -15,9 +18,13 @@ class NewForm extends Component {
       price: '',
       link: '',
       comments: '',
-      occurred: Boolean
-    }
+      image: '',
+      modalInputName: "",
+    };
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
+
+
   handleNameChange = (event) => {
     this.setState({
       name: event.target.value
@@ -63,19 +70,15 @@ handleOccurredChange = (event)=> {
     occurred: event.target.value
   })
 }
-// handleSubmit = (event) => {
-//   alert(`
-//   ${this.state.name}
-//   ${this.state.type}
-//   ${this.state.location}
-//   ${this.state.date}
-//   ${this.state.time}
-//   ${this.state.price}
-//   ${this.state.link}
-//   ${this.state.comments}
-//   ${this.state.occurred}`)
-// }
+handleImageChange = (event)=>{
+  this.setState({
+    image: event.target.value
+  })
   
+}
+
+
+
 handleSubmit = (event) => {
   event.preventDefault()
   fetch(baseURL + '/events', {
@@ -86,7 +89,7 @@ handleSubmit = (event) => {
     }
   }).then (res => res.json())
     .then (resJson => {
-     console.log('NewForm - resJson', resJson) // this will be replaced with this.handleAddEvent once App has passed it down
+     console.log('NewForm - resJson', resJson) 
       this.props.handleAddEvent(resJson)
       this.setState({
         name: '',
@@ -96,13 +99,47 @@ handleSubmit = (event) => {
         price: '',
         link: '',
         comments: '',
-        occurred: Boolean
+        showModal: false
         })
+        this.handleCloseModal();
+        
+      
   }).catch (error => console.error({'Error': error}))
 }
-  render(){
-    return(
-      <form onSubmit={this.handleSubmit}>
+
+//////BREAK //////
+
+  modalOpen() {
+    this.setState({ modal: true });
+  }
+
+  modalClose() {
+    this.setState({
+      modalInputName: "",
+      modal: false
+    });
+  }
+
+  handleCloseModal () {
+    this.setState({modal: false})
+  }
+
+
+
+  render() {
+    return (
+      <div className="FormPop">
+      <br></br>
+      
+     
+        <a href="#" onClick={e => this.modalOpen(e)}>
+          <button id="addEventButton">Add New Event</button>
+        </a>
+        <Modal show={this.state.modal} handleClose={e => this.modalClose(e)}>
+          <h2>Add a New Event</h2>
+          <div className="form-group">
+          <form onSubmit={this.handleSubmit}>
+          
         <label htmlFor="name">Name of Event: </label>
         <input 
           type="text" 
@@ -123,14 +160,6 @@ handleSubmit = (event) => {
           <option value="sports">Sporting Event</option>
           <option value="other">Other</option>
         </select>
-        {/* <input 
-          type="text" 
-          id="type" 
-          name="type" 
-          
-          value={this.state.type} 
-          placeholder=""
-        /> */}
         <br></br>
 
         <label htmlFor="location">Location: </label>
@@ -144,7 +173,7 @@ handleSubmit = (event) => {
         />
         <br></br>
 
-{/* HOLD: Can use Date-Picker Here */}
+{/* HOLD: Can use Date-Picker Here,if we decide to */}
 
         <label htmlFor="date">Date: </label>
           <input 
@@ -200,22 +229,20 @@ handleSubmit = (event) => {
           placeholder=""
         />
         <br></br>
+        
 
-        <label htmlFor="occurred">Event Occurred: </label>
-        {/* <input 
-          type="checkbox" 
-          id="occurred" 
-          name="occurred" 
-          onChange={this.handleOccurredChange} 
-          value={this.state.occurred} 
-          placeholder=""
-        /> */}
-        <br></br>
-
-        <input type="submit" id="submit" value="Add New Event"/>
+        <input type="submit" id="submit" onClick={<Modal handleClose />} value="Add Your New Event"/>
       </form>
-    )
+          </div>
+
+        </Modal>
+      </div>
+    );
   }
 }
 
-export default NewForm
+const rootElement = document.getElementById("root");
+ReactDOM.render(<FormPop />, rootElement);
+
+export default FormPop
+

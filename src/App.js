@@ -1,26 +1,20 @@
 import React, { Component } from 'react'
-// import {} from 'react-router-dom';
 import './App.css';
-import NewForm from './components/NewForm';
 import EventShow from './components/EventShow.js'
-// import Delete from './components/DeleteEvent';
-// import Delete from './components/DeleteEvent';
-// import { Button } from 'bootstrap';
-// import {Button, Alert, Card} from 'react-bootstrap'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// const sass = require('sass');
-// const result = sass.compile('./App.scss');
+import FAQ from './components/FAQ'
+import Home from './components/Pages/Home';
+
+// Here be routers //
+
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+
+
 
 let baseURL = process.env.REACT_APP_BACKEND_URL
-// let baseURL =''
 
-// if (process.env.NODE_ENV === 'development') {
-//   baseURL = 'http://localhost:3003'
-// } else {
-//   baseURL = process.env.REACT_APP_BACKEND_URL
-// }
 
 console.log('current base URL: ', baseURL)
+
 
 
 class App extends Component {
@@ -62,27 +56,32 @@ class App extends Component {
       price: '',
       link: '',
       comments: '',
+
+    })
+  }
+  handleDeleteEvent = (event) => {
+    console.log(this.user)
+    const copyEvents = [...this.state.events]
+    
+    copyEvents.unshift(event)
+    this.setState({
+      events: copyEvents,
+      reloadThis () {
+        window.location.reload(false);
+    }
+    
       // occurred: Boolean
     })
   }
-  // handleDeleteEvents = (id) => {
-  //   fetch(baseURL + '/events/' + id, {
-  //     method: 'DELETE'
-  //   }).then( response => {
-  //     const findIndex = this.state.events.findIndex(event => event._id === id)
-  //     const copyEvents = [...this.state.events]
-  //     copyEvents.splice(findIndex, 1)
-  //     this.setState({events: copyEvents})
-  //     console.log(this.state)
-  //   })
-  // }
+
   render (){
   return (
-    <div>
+    <>
+        <div>
       <div>
-      <h1>Journey-App</h1>
-      < NewForm handleAddEvent={this.handleAddEvent} />
-      <table>
+
+{/*       < NewForm handleAddEvent={this.handleAddEvent} />
+ */}      <table>
         <tbody>
           {this.state.events.map(events =>{
             return (
@@ -96,14 +95,28 @@ class App extends Component {
         
       </table>
     </div>
-      <EventShow 
-        events = {this.state.events}
-       
-      />
+      
     </div>
     
-  );
+  <BrowserRouter>
+
+  <Routes>
+    <Route path='/' element={<Home />}/>
+    <Route path='/FAQ' element={<FAQ />}/>
+    <Route path='/events' element={<EventShow 
+        events = {this.state.events}/>
+      }/>
+  </Routes>
+
+  </BrowserRouter>
+
+    
+</>
+
+);
+  
 }
+
 }
 
 
