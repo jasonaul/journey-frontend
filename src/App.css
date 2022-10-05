@@ -40,6 +40,7 @@
 
 .navbar {
   display: flex;
+  width: 100%;
   align-items: center;
   background: white;
   margin-right: auto;
@@ -127,6 +128,7 @@
 
 #cardType {
   padding-left: 3px;
+  text-transform: capitalize;
 }
 
 #cardDate {
@@ -148,6 +150,24 @@
   padding-left: 3px;
 }
 
+#cardDelete {
+  
+  position:absolute;
+  bottom:0;
+  left: 0;
+  margin-left: 25%;
+  margin-bottom: 10px;
+  line-height: 15px;
+  background: #0069eb;
+  border-radius: 30px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 15px 30px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
 #cardImage {
   max-height: 90%;
   max-width: 90%;
@@ -155,4 +175,19 @@
   margin: auto;
   display: block;
   padding-top: 25px;
+}
+
+/* Add New Event Button */ 
+
+#addEventButton {
+  background: #ffa500;
+  color: black;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  padding: 15px 30px;
+  font-weight: 900;
+  text-decoration: none;
+  border-style: solid; 
+  border-color: #c48208;
 }

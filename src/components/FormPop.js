@@ -18,8 +18,8 @@ class FormPop extends React.Component {
       price: '',
       link: '',
       comments: '',
+      image: '',
       modalInputName: "",
-      showModal: false
     };
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
@@ -70,6 +70,14 @@ handleOccurredChange = (event)=> {
     occurred: event.target.value
   })
 }
+handleImageChange = (event)=>{
+  this.setState({
+    image: event.target.value
+  })
+  
+}
+
+
 
 handleSubmit = (event) => {
   event.preventDefault()
@@ -91,9 +99,11 @@ handleSubmit = (event) => {
         price: '',
         link: '',
         comments: '',
-        occurred: Boolean
+        showModal: false
         })
         this.handleCloseModal();
+        
+      
   }).catch (error => console.error({'Error': error}))
 }
 
@@ -123,7 +133,7 @@ handleSubmit = (event) => {
       
      
         <a href="/#" onClick={e => this.modalOpen(e)}>
-          Add New Event
+          <button id="addEventButton">Add New Event</button>
         </a>
         <Modal show={this.state.modal} handleClose={e => this.modalClose(e)}>
           <h2>Add a New Event</h2>
@@ -221,7 +231,7 @@ handleSubmit = (event) => {
         <br></br>
         
 
-        <input type="submit" id="submit" onclick={"self.close()"} value="Add Your New Event"/>
+        <input type="submit" id="submit" onClick={<Modal handleClose />} value="Add Your New Event"/>
       </form>
           </div>
 

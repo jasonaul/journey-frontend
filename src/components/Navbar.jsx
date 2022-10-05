@@ -6,6 +6,7 @@ function Navbar() {
        <header className='navbar'>
         <div className='navbar__title navbar__item'><a href="/"><img id="headerLogo" src="https://i.imgur.com/5DNJU43.png" alt="Journey"></img></a></div>
         <div className='navbar__item'>Events</div>
+        <div className='navbar__item'>FAQ</div>
         <div className='navbar__item'>Login</div>
         <div className='navbar__item'>Sign Up</div>        
     </header>
