@@ -43,6 +43,11 @@
   width: 100%;
   align-items: center;
   background: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-top: 15px;
   margin-right: auto;
   font-family: Helvetica;
   font-weight: 300;
@@ -58,6 +63,7 @@
 .navbar_item {
   padding: 14px ;
   cursor: pointer;
+  position: relative;
   vertical-align: middle;
   color: orange;
   font-weight: 900;
@@ -225,7 +231,7 @@
 
 
 /* HOME PAGE THINGS */
-.hero-image {
+#mainImage {
   background-image: linear-gradient(rgba(237, 220, 220, 0.5), rgba(77, 74, 74, 0.5)), url("https://i.pinimg.com/originals/69/d0/7f/69d07f5b4e21ac19a3bdebbbdd6d2cc1.jpg");
   height: 550px;
   background-position: center;
@@ -240,8 +246,41 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 100%;
+  font-weight: 900;
   transform: translate(-50%, -50%);
   color: white;
 }
+
+#heroH1 {
+  font-size: 80px;
+}
+
+#heroP {
+  font-size: 30px;
+}
+
+.inspiration{
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: .5px;
+  line-height: 40px;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+#inspiroImg {
+  float: left;
+  max-height: 25%;
+  max-width: 25%;
+  
+  margin-right: 55px;
+  display: block;
+  
+  padding: 5px;
+}
+
 
 
