@@ -41,6 +41,7 @@ class App extends Component {
         console.log(data)
         this.setState({ events: data.events})
       })
+      
   }
 
   handleAddEvent = (event) => {

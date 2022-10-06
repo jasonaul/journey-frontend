@@ -80,7 +80,7 @@ handleImageChange = (event)=>{
 
 
 handleSubmit = (event) => {
-  event.preventDefault()
+  /* event.preventDefault() */
   fetch(baseURL + '/events', {
     method: 'POST',
     body: JSON.stringify({name: this.state.name, type: this.state.type, location: this.state.location, date: this.state.date, time: this.state.time, price: this.state.price, link: this.state.link, comments: this.state.comments, image: this.state.image, occurred: this.state.occurred}),
@@ -102,6 +102,7 @@ handleSubmit = (event) => {
         image: '',
         showModal: false
         })
+        
         this.handleCloseModal();
         
       
@@ -218,10 +219,10 @@ handleSubmit = (event) => {
         <select value={this.state.image} onChange={this.handleImageChange} className="form-control" >
           <option value="https://i.imgur.com/Vl9lCDA.png">Superhero</option>
           <option value="https://i.imgur.com/c0GaIr6.jpeg">Rock Star</option>
-          <option value="convention">Convention</option>
-          <option value="arts">Performing & Visual Arts</option>
-          <option value="sports">Sporting Event</option>
-          <option value="other">Other</option>
+          <option value="https://ironstonehq.com/wp-content/uploads/2018/10/AdobeStock_208955675-1024x684.jpeg">All Things Business</option>
+          <option value="https://i.imgur.com/E2Nffrt.jpeg">Feeling Artsy</option>
+          <option value="https://i.imgur.com/gEj7GZf.jpeg">Yeah! Sports Ball!</option>
+          <option value="https://i.imgur.com/Uj8oGm0.jpg">Other</option>
         </select>
         <br></br>
 
