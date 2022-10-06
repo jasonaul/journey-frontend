@@ -3,6 +3,7 @@ import './App.css';
 import EventShow from './components/EventShow.js'
 import FAQ from './components/FAQ'
 import Home from './components/Pages/Home';
+import Login from './components/Login';
 
 // Here be routers //
 
@@ -28,8 +29,47 @@ class App extends Component {
   async componentDidMount(){
     this.getEvents()
   }
+
+  loginUser = (e) => {
+    // e.preventDefault()
+    fetch(baseURL + '/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: e.target.username.value,
+        password: e.target.password.value
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: "include"
+    }).then(res => res.json())
+    .then(resJson => {
+      console.log(resJson)
+      this.getEvents()
+    })
+  }
+
+  register = (e) => {
+    e.preventDefault()
+    fetch(baseURL + '/users/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: e.target.username.value,
+        password: e.target.password.value
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .then(resJson => {
+      console.log(resJson)
+    })
+  }
+
   getEvents = () => {
-    fetch(baseURL +'/events')
+    fetch(baseURL +'/events', {
+      credentials: "include"
+    })
       .then((res) => {
         if (res.status === 200){
           return res.json()
@@ -72,7 +112,7 @@ class App extends Component {
         window.location.reload(false);
     }
     
-      // occurred: Boolean
+     
     })
   }
 
@@ -80,22 +120,20 @@ class App extends Component {
   return (
     <>
         <div>
+        < Login loginUser={this.loginUser} register={this.register} />
       <div>
 
-{/*       < NewForm handleAddEvent={this.handleAddEvent} />
- */}      <table>
-        <tbody>
-          {this.state.events.map(events =>{
+       {/* < NewForm handleAddEvent={this.handleAddEvent} />
+         <table>
+            <tbody>
+              {this.state.events.map(events =>{
             return (
               <tr key={events._id}>
               {/* <td> {events.name }</td> */}
-              </tr>
-              
-            )
-          })}
-        </tbody>
+              {/* </tr>)})} */}
+        {/* {</tbody>} */}
         
-      </table>
+      {/*</table> */}
     </div>
       
     </div>

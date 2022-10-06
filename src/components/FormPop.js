@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+
 import Modal from "./Modal";
 
 import "../Pop.css";
@@ -260,8 +260,7 @@ handleSubmit = (event) => {
   }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<FormPop />, rootElement);
+
 
 export default FormPop
 

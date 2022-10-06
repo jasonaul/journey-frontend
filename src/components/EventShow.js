@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import ReactDOM from 'react-dom'
+
 import FormPop from './FormPop'
-import Modal from "./Modal";
-import Update from './Update'
+// import Modal from "./Modal";
+// import Update from './Update'
 
 
 let baseURL = process.env.REACT_APP_BACKEND_URL
@@ -115,14 +115,7 @@ class EventShow extends Component {
    )} 	
   }
   
-  function tick() {
-    ReactDOM.render(
-      <EventShow />,
-      document.getElementById('root')
-    );
-  }
   
-  tick()
 
 
 
