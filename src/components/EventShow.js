@@ -102,7 +102,7 @@ class EventShow extends Component {
     onClick={() => this.handleDeleteEvents(events._id)
      }>Delete {events.name}</button>
 
-{/* <button id="updateButton"><Update /></button> */}
+{/* <button id="updateButton"><Update events = {this.state.events} /></button> */}
 
 </div>
 

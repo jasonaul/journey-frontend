@@ -141,7 +141,7 @@ modalOpen() {
           <button id="updateEventButton">Update Event</button>
         </a>
         <Modal show={this.state.modal} handleClose={e => this.modalClose(e)}>
-          <h2>Add a New Event</h2>
+    
           <div className="form-group">
           <form onSubmit={this.handleSubmit}>
           
@@ -247,7 +247,7 @@ modalOpen() {
         <br></br>
         
 
-        <input type="submit" id="submit"  value="Add Your New Event"/>
+        <input type="submit" id="submit"  value="Update Your Event"/>
       </form>
           </div>
 
