@@ -56,6 +56,7 @@ class App extends Component {
       price: '',
       link: '',
       comments: '',
+      image: '',
 
     })
   }

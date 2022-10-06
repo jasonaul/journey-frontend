@@ -1,11 +1,11 @@
 import React, { Component } from "react"
 import ReactDOM from 'react-dom'
-/* import Delete from './Delete'
- *//* import MapContainer from './MapContainer'
- */
 import FormPop from './FormPop'
+import Modal from "./Modal";
+import Update from './Update'
 
- let baseURL = process.env.REACT_APP_BACKEND_URL
+
+let baseURL = process.env.REACT_APP_BACKEND_URL
 
 
  
@@ -35,18 +35,17 @@ class EventShow extends Component {
 }
 
    handleDeleteEvents = (id) => {
-    // event.preventDefault()
+
     console.log(id)
     console.log(this.props.events.findIndex((events)=> events._id === id))
-    // console.log(id)
+
     fetch(baseURL + '/events/' + id, {
     method: 'DELETE',
-    // credentials: "include",
+
     }).then( response => {
     const copyEvents = [...this.props.events]
     console.log(copyEvents)
-   
-   
+      
     const findIndex = this.props.events.findIndex((events) => events._id === id);
    
     copyEvents.splice(findIndex, 1)
@@ -55,6 +54,9 @@ class EventShow extends Component {
     console.log(this.state)
     })
 }
+
+
+
    render(){
     
     console.log(this.props)
@@ -73,6 +75,7 @@ class EventShow extends Component {
             <h1 id="cardName">{events.name}</h1>
             <h4 id="cardType">Event Type: {events.type}</h4>
             <h4 id="cardDate">Date: {events.date}</h4>
+            <h4 id="cardDate">Price: {events.price}</h4>
             <img id="cardImage" alt='' src={events.image}></img>
             </div>
             
@@ -85,16 +88,26 @@ class EventShow extends Component {
 <h3 id="locationCard">Location: {events.location}</h3>
 
 <a href={events.link}>Link to Event Website</a>
+<p id="cardComments">{events.comments}</p>
+{/* <button id="cardDelete"  
+    onClick={() => this.handleDeleteEvents(events._id)
+     }>DELETE EVENT</button> */}
+
+</div>
+
+
+</div>
+
 <button id="cardDelete"  
     onClick={() => this.handleDeleteEvents(events._id)
-     }>DELETE EVENT</button>
+     }>Delete {events.name}</button>
+
+{/* <button id="updateButton"><Update /></button> */}
 
 </div>
 
 
-</div>
-
-</div><hr></hr></div>
+<hr></hr></div>
         )
       })}
 

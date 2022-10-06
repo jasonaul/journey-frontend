@@ -30,3 +30,8 @@ if ({events.type} === 'concert') {
     eventImage = "https://i.imgur.com/Uj8oGm0.jpg"
 }
 }} */}
+
+
+
+
+onClick={<Modal handleClose />}
