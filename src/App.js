@@ -4,10 +4,12 @@ import EventShow from './components/EventShow.js'
 import FAQ from './components/FAQ'
 import Home from './components/Pages/Home';
 import Login from './components/Login';
+import Signup from './components/Signup';
 
 // Here be routers //
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Signin from './components/Signup';
 
 
 
@@ -49,7 +51,7 @@ class App extends Component {
     })
   }
 
-  register = (e) => {
+  signup = (e) => {
     e.preventDefault()
     fetch(baseURL + '/users/signup', {
       method: 'POST',
@@ -147,7 +149,7 @@ class App extends Component {
         events = {this.state.events}/>
       }/>
     <Route path='/login' element={<Login loginUser={this.loginUser}/>}/>
-    <Route path='/signup' element={<Login register={this.register}/>}/>
+    <Route path='/signup' element={<Signup signup={this.signup}/>}/>
   </Routes>
 
   </BrowserRouter>
