@@ -25,6 +25,7 @@ class EventShow extends Component {
         user: this.user
       
       }
+      this.handleDeleteEvents = this.handleDeleteEvents.bind(this)
     }
    flip(){
      this.setState({flip: !this.state.flip},()=>console.log(this.state.flip))
@@ -35,10 +36,10 @@ class EventShow extends Component {
 }
 
    handleDeleteEvents = (id) => {
-
+    console.log(this.props.events.id)
     console.log(id)
     console.log(this.props.events.findIndex((events)=> events._id === id))
-
+    console.log(baseURL+'/events/'+id)
     fetch(baseURL + '/events/' + id, {
     method: 'DELETE',
 
@@ -53,6 +54,7 @@ class EventShow extends Component {
     
     console.log(this.state)
     })
+    window.location.reload()
 }
 
 

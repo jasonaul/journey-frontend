@@ -22,6 +22,7 @@ class FormPop extends React.Component {
       modalInputName: "",
     };
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    
   }
 
 
