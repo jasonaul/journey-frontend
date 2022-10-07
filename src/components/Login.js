@@ -7,7 +7,7 @@ export default function Login(props) {
         <input className="form-control" type="text" id="name" name="username"/>
         <label htmlFor="name">Password: </label>
         <input className="form-control" type="password" id="password" name="password"/>
-        <input type="submit" value="Login" />
+        <input id="signupButton" type="submit" value="Login" />
       </form>
       <br></br>
       <h1>Sign Up</h1>

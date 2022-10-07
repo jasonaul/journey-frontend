@@ -283,4 +283,10 @@
 }
 
 
+#signupButton {
+  margin-top: 15px;
+  margin-left: 15px;
+  color: white;
+  background-color: rgb(255, 128, 0);
+}
 
