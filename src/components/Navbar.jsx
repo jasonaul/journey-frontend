@@ -10,8 +10,8 @@ class Navbar extends React.Component {
         <div className='navbar_item'><a id="noLink" href="/">Home</a></div>
         <div className='navbar_item'><a id="noLink" href="/events">Events</a></div>
         <div className='navbar_item'><a id="noLink" href="/FAQ">FAQ</a></div>
-        <div className='navbar_item'>Login</div>
-        <div className='navbar_item'>Sign Up</div>        
+        <div className='navbar_item'><a id="noLink" href="/login">Login</a></div>
+        <div className='navbar_item'><a id="noLink" href="/signup">Sign Up</a></div>        
     </header>
     </nav>
 )}}

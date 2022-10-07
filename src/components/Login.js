@@ -1,20 +1,22 @@
 export default function Login(props) {
   return (
     <nav>
+    <h1>Login</h1>
       <form onSubmit={props.loginUser}>
         <label htmlFor="name">Username: </label>
-        <input type="text" id="name" name="username"/>
+        <input className="form-control" type="text" id="name" name="username"/>
         <label htmlFor="name">Password: </label>
-        <input type="password" id="password" name="password"/>
-        <input type="submit" value="login" />
+        <input className="form-control" type="password" id="password" name="password"/>
+        <input type="submit" value="Login" />
       </form>
-      OR
+      <br></br>
+      <h1>Sign Up</h1>
       <form onSubmit={props.register}>
         <label htmlFor="name">Username: </label>
-        <input type="text" id="name" name="username"/>
+        <input className="form-control" type="text" id="name" name="username"/>
         <label htmlFor="name">Password: </label>
-        <input type="password" id="password" name="password"/>
-        <input type="submit" value="signup" />
+        <input className="form-control" type="password" id="password" name="password"/>
+        <input id="signupButton" type="submit" value="Sign Up" />
       </form>
     </nav>
   )

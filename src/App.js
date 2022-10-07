@@ -120,7 +120,7 @@ class App extends Component {
   return (
     <>
         <div>
-        < Login loginUser={this.loginUser} register={this.register} />
+        {/* < Login loginUser={this.loginUser} register={this.register} /> */}
       <div>
 
        {/* < NewForm handleAddEvent={this.handleAddEvent} />
@@ -146,6 +146,8 @@ class App extends Component {
     <Route path='/events' element={<EventShow 
         events = {this.state.events}/>
       }/>
+    <Route path='/login' element={<Login loginUser={this.loginUser}/>}/>
+    <Route path='/signup' element={<Login register={this.register}/>}/>
   </Routes>
 
   </BrowserRouter>
