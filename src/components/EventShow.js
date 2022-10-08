@@ -76,7 +76,7 @@ class EventShow extends Component {
             <div key={events.id}>
             <h1 id="cardName">{events.name}</h1>
             <h4 id="cardType">Event Type: {events.type}</h4>
-            <h4 id="cardDate">Date: {events.date}</h4>
+            <h4 id="cardDate">Date: {events.date} & Time: {events.time}</h4>
             <h4 id="cardDate">Price: {events.price}</h4>
             <img id="cardImage" alt='' src={events.image}></img>
             </div>
