@@ -2,7 +2,7 @@ import React, { Component } from "react"
 
 import FormPop from './FormPop'
 // import Modal from "./Modal";
-// import Update from './Update'
+import Update from './Update'
 
 
 let baseURL = process.env.REACT_APP_BACKEND_URL
@@ -108,7 +108,18 @@ class EventShow extends Component {
 
 </div>
 
-
+<div>< Update 
+  events_id={events._id}
+  name={events.name}
+  location={events.location}
+  date={events.time}
+  price={events.price}
+  link={events.link}
+  comments={events.comments}
+  time={events.time}
+  
+        
+/></div>
 <hr></hr></div>
         )
       })}

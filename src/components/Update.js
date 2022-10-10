@@ -9,15 +9,27 @@ class Update extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-          name: '',
-          location: '',
-          date: '',
-          time: '',
-          price: '',
-          link: '',
-          comments: '',
+          
+          events_id:props.events_id,
+          name: props.name,
+          location: props.location,
+          date: props.date,
+          time: props.time,
+          price: props.price,
+          link: props.link,
+          comments: props.comments,
         }
+        this.handleNameChange = this.handleNameChange.bind(this)
+        this.handleTypeChange = this.handleTypeChange.bind(this)
+        this.handleLocationChange = this.handleLocationChange.bind(this)
+        this.handleDateChange = this.handleDateChange.bind(this)
+        this.handleTimeChange = this.handleTimeChange.bind(this)
+        this.handlePriceChange = this.handlePriceChange.bind(this)
+        this.handleLinkChange = this.handleLinkChange.bind(this)
+        this.handleCommentsChange = this.handleCommentsChange.bind(this)
       }
+
+      
       handleNameChange = (event) => {
         this.setState({
           name: event.target.value
@@ -58,11 +70,7 @@ class Update extends React.Component {
         comments: event.target.value
       })
     }
-    handleOccurredChange = (event)=> {
-      this.setState({
-        occurred: event.target.value
-      })
-    }
+   
 
 
 
@@ -83,57 +91,82 @@ modalOpen() {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    fetch(baseURL + '/events', {
-      method: 'POST',
-      body: JSON.stringify({name: this.state.name, type: this.state.type, location: this.state.location, date: this.state.date, time: this.state.time, price: this.state.price, link: this.state.link, comments: this.state.comments, image: this.state.image, occurred: this.state.occurred}),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    // const eventObject = {
+    //       name: this.state,
+    //       location: this.state,
+    //       date: this.state,
+    //       time: this.state,
+    //       price: this.state,
+    //       link: this.state,
+    //       comments: this.state,
+    //       image: this.state,
+    // }
+    console.log(this.state.events)
+    fetch(baseURL + '/events/'+ this.state.events_id, {
+      method: 'PUT',
+      body: JSON.stringify({
+        events_id: this.state.events_id,
+        name: this.state.name,
+          location: this.state.location,
+          date: this.state.date,
+          time: this.state.time,
+          price: this.state.price,
+          link: this.state.link,
+          comments: this.state.comments,
+          image: this.state.image,
+      }),
+			headers: {
+				'Content-Type': 'application/json',
+			},
     }).then (res => res.json())
       .then (resJson => {
-       console.log('NewForm - resJson', resJson) 
-        this.props.handleUpdateEvent(resJson)
-        this.setState({
-          name: '',
-          location: '',
-          date: '',
-          time: '',
-          price: '',
-          link: '',
-          comments: '',
-          image: '',
-          showModal: false
-          })
+        console.log('resJson', resJson);
+				const copyEvents = [...this.state.events];
+				const findIndex = this.state.events.findIndex(
+					(event) => event._id === resJson._id
+				);
+				copyEvents[findIndex].name = resJson.name;
+        copyEvents[findIndex].location = resJson.location;
+        copyEvents[findIndex].date = resJson.date;
+        copyEvents[findIndex].time = resJson.time;
+        copyEvents[findIndex].price = resJson.price;
+        copyEvents[findIndex].link = resJson.link;
+        copyEvents[findIndex].comments = resJson.comments;
+        copyEvents[findIndex].image = resJson.image;
+        
+				this.setState({ events: copyEvents }); 
+       
           this.handleCloseModal();
           
         
     }).catch (error => console.error({'Error': error}))
+    window.location.reload()
   }
-  handleUpdateEvents = (id) => {
+  // handleUpdateEvents = (id) => {
 
-    console.log(id)
-    console.log(this.props.events.findIndex((events)=> events._id === id))
+  //   console.log(id)
+  //   console.log(this.props.events.findIndex((events)=> events._id === id))
 
-    fetch(baseURL + '/events/' + id, {
-    method: 'POST',
+  //   fetch(baseURL + '/events/' + id, {
+  //   method: 'POST',
 
-    }).then( response => {
-    const copyEvents = [...this.props.events]
-    console.log(copyEvents)
+  //   }).then( response => {
+  //   const copyEvents = [...this.props.events]
+  //   console.log(copyEvents)
       
-    const findIndex = this.props.events.findIndex((events) => events._id === id);
+  //   const findIndex = this.props.events.findIndex((events) => events._id === id);
    
-    copyEvents.splice(findIndex, 1)
-    this.setState({events: copyEvents})
+  //   copyEvents.splice(findIndex, 1)
+  //   this.setState({events: copyEvents})
     
-    console.log(this.state)
-    })
-  }
+  //   console.log(this.state)
+  //   })
+  // }
 
 
   render() {
     return (
-      <div className="FormPop">
+      <div className="">
       <br></br>
       
      
